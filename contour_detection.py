@@ -18,9 +18,6 @@ def contour_cropped(img: np.array) -> np.array:
 
 def background_subtractor_mog(img: np.array) -> np.array:
 	fgmask = fgbg.apply(img)
-	_, binary = cv2.threshold(fgmask, 255, 255, cv2.THRESH_BINARY_INV)
-	contours, hierarchy = cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-	img = cv2.drawContours(img, contours, -1, (0, 255, 0), 2)
 	return fgmask
 
 # Open a web cam
